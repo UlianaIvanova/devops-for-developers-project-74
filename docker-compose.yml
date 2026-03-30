@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile.production
     command: make test
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=test
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME=postgres
