@@ -3,6 +3,7 @@ FROM node:20.12.2
 WORKDIR /app
 
 COPY app/package*.json ./
+
 RUN npm ci
 
 COPY app .
@@ -11,4 +12,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-CMD ["make", "start"]
+CMD ["npm", "start"]
