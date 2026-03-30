@@ -2,4 +2,3 @@ app/node_modules
 app/database.sqlite
 .git
 .github
-*.md
