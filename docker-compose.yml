@@ -12,12 +12,12 @@ services:
       retries: 5
 
   app:
-    image: ulianaivanova/devops-for-developers-project-74:latest
     build:
       context: .
       dockerfile: Dockerfile.production
+    command: make test
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=test
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_NAME=postgres
