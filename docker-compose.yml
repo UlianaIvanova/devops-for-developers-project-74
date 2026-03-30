@@ -16,6 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
+    command: make test
     environment:
       - NODE_ENV=production
       - DATABASE_HOST=db
