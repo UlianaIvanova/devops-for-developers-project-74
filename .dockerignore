@@ -1,4 +1,8 @@
-app/node_modules
-app/database.sqlite
+node_modules
+npm-debug.log
 .git
-.github
+.env
+*.sqlite
+*.log
+dist
+coverage

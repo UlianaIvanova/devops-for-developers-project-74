@@ -8,7 +8,7 @@ module.exports = {
     storage: './database.test.sqlite',
   },
   production: {
-    dialect: 'postgres',      
+    dialect: 'postgres',
     host: process.env.DATABASE_HOST || 'db',
   },
 };
