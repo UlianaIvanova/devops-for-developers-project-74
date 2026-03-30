@@ -1,10 +1,6 @@
-# app/services/caddy/Caddyfile
+# services/caddy/Caddyfile (в корне репозитория!)
 
 :80 {
-    log {
-        format json
-    }
-    encode zstd
     reverse_proxy app:8080
 }
 
