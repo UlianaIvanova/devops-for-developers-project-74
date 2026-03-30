@@ -1,35 +1,14 @@
 services:
-  db:
-    image: postgres:15-alpine
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: postgres
-
-  app:
-    build: ./app
-    environment:
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_NAME: postgres
-      DATABASE_USERNAME: postgres
-      DATABASE_PASSWORD: password
-    depends_on:
-      - db
-    command: npm start
-
   caddy:
     image: caddy:2-alpine
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./app/services/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
+    command: |
+      sh -c "
+        echo ':80 { reverse_proxy app:8080 }' > /etc/caddy/Caddyfile &&
+        echo ':443 { reverse_proxy app:8080; tls internal }' >> /etc/caddy/Caddyfile &&
+        caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+      "
     depends_on:
       - app
-
-volumes:
-  caddy_data:
-  caddy_config:
