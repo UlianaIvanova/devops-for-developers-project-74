@@ -11,4 +11,5 @@ RUN npm run build
 
 EXPOSE 8080
 
+# По умолчанию ставим start, но compose заменит это на test
 CMD ["make", "start"]
