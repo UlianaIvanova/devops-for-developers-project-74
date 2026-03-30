@@ -1,12 +1,13 @@
-# services/caddy/Caddyfile
+localhost {
+  log {
+    format json
+  }
 
-:80 {
-    reverse_proxy app:8080
-}
+  # Компрессия
+  encode zstd
+  # Самоподписной сертификат для локальной разработки
+  tls internal
 
-:443 {
-    reverse_proxy app:8080
-    tls {
-        ca_certificates internal
-    }
+  # Проксирование всех запросов в контейнер с приложением
+  reverse_proxy /* app:8080
 }
