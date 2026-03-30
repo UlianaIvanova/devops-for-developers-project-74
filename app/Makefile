@@ -1,3 +1,6 @@
+# /project/app/Makefile ← ВНУТРИ ПАПКИ app/
+.PHONY: setup install db-migrate build prepare-env start dev test lint lint-fix
+
 setup: install db-migrate
 
 install:
@@ -10,7 +13,7 @@ build:
 	npm run build
 
 prepare-env:
-	cp -n .env.example .env
+	cp -n .env.example .env 2>/dev/null || true
 
 start:
 	NODE_ENV=production npm run start

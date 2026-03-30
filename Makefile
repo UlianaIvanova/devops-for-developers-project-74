@@ -1,12 +1,12 @@
+.PHONY: setup start test
+
 setup:
-	cp -n .env.example .env || true
+	cp -n .env.example .env
+	docker-compose up -d db
 	docker-compose run --rm app make setup
 
-dev:
+start:
 	docker-compose up
 
 test:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
-
-ci:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+	docker-compose run --rm app make test
