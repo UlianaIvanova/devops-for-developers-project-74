@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const postgresConfig = {
+const dbConfig = {
   dialect: 'postgres',
   database: process.env.DATABASE_NAME || 'postgres',
   username: process.env.DATABASE_USERNAME || 'postgres',
@@ -10,10 +10,7 @@ const postgresConfig = {
 };
 
 module.exports = {
-  development: {
-    dialect: 'sqlite',
-    storage: './database.sqlite',
-  },
-  test: postgresConfig,
-  production: postgresConfig,
+  development: dbConfig,
+  production: dbConfig,
+  test: dbConfig,
 };
