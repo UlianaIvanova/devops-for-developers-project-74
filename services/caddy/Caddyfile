@@ -1,7 +1,20 @@
+# app/Caddyfile
+
+# HTTP на порт 80
 :80 {
     log {
         format json
     }
     encode zstd
     reverse_proxy app:8080
+}
+
+# HTTPS на порт 443 (для CI проверок)
+:443 {
+    log {
+        format json
+    }
+    encode zstd
+    reverse_proxy app:8080
+    tls internal
 }
