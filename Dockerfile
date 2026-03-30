@@ -3,13 +3,12 @@ FROM node:20.12.2
 WORKDIR /app
 
 COPY app/package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY app .
 
-ENV NODE_ENV=production
 RUN npm run build
 
 EXPOSE 8080
 
-CMD ["make", "start"]
+CMD ["make", "test"]
