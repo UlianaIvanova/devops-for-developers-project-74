@@ -1,4 +1,4 @@
-# services/caddy/Caddyfile (в корне репозитория!)
+# services/caddy/Caddyfile
 
 :80 {
     reverse_proxy app:8080
