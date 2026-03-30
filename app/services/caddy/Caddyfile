@@ -1,6 +1,10 @@
 # app/services/caddy/Caddyfile
 
 :80 {
+    log {
+        format json
+    }
+    encode zstd
     reverse_proxy app:8080
 }
 
