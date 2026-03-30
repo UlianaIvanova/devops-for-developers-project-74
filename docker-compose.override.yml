@@ -2,10 +2,8 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile #
+      dockerfile: Dockerfile
     command: make dev
-    ports:
-      - "8080:8080"
     volumes:
       - ./app:/app
       - /app/node_modules
@@ -37,9 +35,10 @@ services:
     image: caddy:latest
     restart: unless-stopped
     ports:
-      - "8081:80" 
+      - "8081:80"   # Заходим через http://localhost:8081
+      - "8443:443"  # Для HTTPS
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile 
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile 
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
