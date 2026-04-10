@@ -1,7 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/UlianaIvanova/devops-for-developers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/UlianaIvanova/devops-for-developers-project-74/actions)
+
+![push-workflow](https://github.com/ulianaivanova/devops-for-developers-project-74/actions/workflows/push.yml/badge.svg)
+
 # DevOps Project 74
-![push](https://github.com)
 
 ## Requirements
 - Docker & Docker Compose (v1.27+)
